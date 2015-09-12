@@ -17,10 +17,13 @@ data_subset <- filter(data,date_time >= "2007-02-01 00:00:00") %>%
 data_subset$Global_active_power <-
   as.numeric(as.character(data_subset$Global_active_power))
 
-#Plot 1
-jpeg(file="Plot1.jpeg")
-with(data_subset,hist(
-  as.numeric(data_subset$Global_active_power),main="Global Active Power",col = "red",xlab = "Global Active Power (kilowatts)"
-))
+#Plot3
+plot.new()
+jpeg(file="Plot3.jpeg")
+with(data_subset,plot(data_subset$date_time,data_subset$Sub_metering_1,type="n",xlab="",ylab="Energy sub metering"))
+#Sub_metering_1 and Sub_metering_2 data converted to class numeric from class factor
+lines(data_subset$date_time,as.numeric(as.character(data_subset$Sub_metering_1)),type="l",col="black")
+lines(data_subset$date_time,as.numeric(as.character(data_subset$Sub_metering_2)),type="l",col="red")
+lines(data_subset$date_time,data_subset$Sub_metering_3,type="l",col="blue")
+legend("topright",lwd=2,col = c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 dev.off()
-

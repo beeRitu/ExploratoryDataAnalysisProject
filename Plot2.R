@@ -17,10 +17,9 @@ data_subset <- filter(data,date_time >= "2007-02-01 00:00:00") %>%
 data_subset$Global_active_power <-
   as.numeric(as.character(data_subset$Global_active_power))
 
-#Plot 1
-jpeg(file="Plot1.jpeg")
-with(data_subset,hist(
-  as.numeric(data_subset$Global_active_power),main="Global Active Power",col = "red",xlab = "Global Active Power (kilowatts)"
-))
+#Plot2
+plot.new()
+jpeg(file="Plot2.jpeg")
+with(data_subset,plot(data_subset$date_time,data_subset$Global_active_power,type="n",xlab="",ylab="Global Active Power (kilowatts)"))
+lines(data_subset$date_time,data_subset$Global_active_power,type="l")
 dev.off()
-
