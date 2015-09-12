@@ -19,7 +19,7 @@ data_subset$Global_active_power <-
 
 #Plot3
 plot.new()
-jpeg(file="Plot3.jpeg")
+png(file="Plot3.png")
 with(data_subset,plot(data_subset$date_time,data_subset$Sub_metering_1,type="n",xlab="",ylab="Energy sub metering"))
 #Sub_metering_1 and Sub_metering_2 data converted to class numeric from class factor
 lines(data_subset$date_time,as.numeric(as.character(data_subset$Sub_metering_1)),type="l",col="black")

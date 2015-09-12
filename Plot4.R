@@ -23,7 +23,7 @@ data_subset$Voltage <-
 
 #Plot4
 plot.new()
-jpeg(file="Plot4.jpeg")
+png(file="Plot4.png")
 par(mfrow=c(2,2))
 with(data_subset,{
   plot(data_subset$date_time,data_subset$Global_active_power,type="n",xlab="",ylab="Global Active Power")

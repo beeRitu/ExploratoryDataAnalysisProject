@@ -18,7 +18,7 @@ data_subset$Global_active_power <-
   as.numeric(as.character(data_subset$Global_active_power))
 
 #Plot 1
-jpeg(file="Plot1.jpeg")
+png(file="Plot1.png")
 with(data_subset,hist(
   as.numeric(data_subset$Global_active_power),main="Global Active Power",col = "red",xlab = "Global Active Power (kilowatts)"
 ))
